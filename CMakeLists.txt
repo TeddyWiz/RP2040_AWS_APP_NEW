@@ -49,10 +49,10 @@ if(NOT DEFINED WIZNET_DIR)
     message(STATUS "WIZNET_DIR = ${WIZNET_DIR}")
 endif()
 
-if(NOT DEFINED MBEDTLS_DIR)
-    set(MBEDTLS_DIR ${CMAKE_SOURCE_DIR}/libraries/mbedtls)
-    message(STATUS "MBEDTLS_DIR = ${MBEDTLS_DIR}")
-endif()
+#if(NOT DEFINED MBEDTLS_DIR)
+#    set(MBEDTLS_DIR ${CMAKE_SOURCE_DIR}/libraries/mbedtls)
+#    message(STATUS "MBEDTLS_DIR = ${MBEDTLS_DIR}")
+#sendif()
 
 if(NOT DEFINED PORT_DIR)
     set(PORT_DIR ${CMAKE_SOURCE_DIR}/port)
@@ -70,7 +70,7 @@ add_subdirectory(examples)
 
 # Add libraries in subdirectories
 add_subdirectory(${CMAKE_SOURCE_DIR}/libraries)
-add_subdirectory(${MBEDTLS_DIR})
+#add_subdirectory(${MBEDTLS_DIR})
 add_subdirectory(${PORT_DIR})
 
 # Set compile options

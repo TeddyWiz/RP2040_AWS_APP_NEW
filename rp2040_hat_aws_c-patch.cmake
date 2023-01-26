@@ -16,8 +16,8 @@ set(AWS_IOT_DEVICE_SDK_EMBEDDED_C_COREHTTP_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/
 set(AWS_IOT_DEVICE_SDK_EMBEDDED_C_COREMQTT_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/aws-iot-device-sdk-embedded-C/libraries/standard/coreMQTT")
 set(AWS_IOT_DEVICE_SDK_EMBEDDED_C_COREHTTP_HTTP_PARSER_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/aws-iot-device-sdk-embedded-C/libraries/standard/coreHTTP/source/dependency/3rdparty/http_parser")
 set(IOLIBRARY_DRIVER_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/ioLibrary_Driver")
-set(MBEDTLS_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/mbedtls")
-set(PICO_EXTRAS_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/pico-extras")
+#set(MBEDTLS_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/mbedtls")
+#set(PICO_EXTRAS_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/pico-extras")
 set(PICO_SDK_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/pico-sdk")
 set(PICO_SDK_TINYUSB_SRC_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/libraries/pico-sdk/lib/tinyusb")
 set(RP2040_HAT_AWS_C_PATCH_DIR "${RP2040_HAT_AWS_C_SRC_DIR}/patches")
@@ -39,20 +39,20 @@ if(EXISTS "${IOLIBRARY_DRIVER_SRC_DIR}/.git")
 endif()
 
 # Delete untracked files in mbedtls
-if(EXISTS "${MBEDTLS_SRC_DIR}/.git")
-	message("cleaning mbedtls...")
-	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${MBEDTLS_SRC_DIR} clean -fdx)
-	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${MBEDTLS_SRC_DIR} reset --hard)
-	message("mbedtls cleaned")
-endif()
+#if(EXISTS "${MBEDTLS_SRC_DIR}/.git")0
+#	message("cleaning mbedtls...")
+#	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${MBEDTLS_SRC_DIR} clean -fdx)
+#	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${MBEDTLS_SRC_DIR} reset --hard)
+#	message("mbedtls cleaned")
+#endif()
 
 # Delete untracked files in pico-extras
-if(EXISTS "${PICO_EXTRAS_SRC_DIR}/.git")
-	message("cleaning pico-extras...")
-	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${PICO_EXTRAS_SRC_DIR} clean -fdx)
-	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${PICO_EXTRAS_SRC_DIR} reset --hard)
-	message("pico-extras cleaned")
-endif()
+#if(EXISTS "${PICO_EXTRAS_SRC_DIR}/.git")
+#	message("cleaning pico-extras...")
+#	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${PICO_EXTRAS_SRC_DIR} clean -fdx)
+#	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${PICO_EXTRAS_SRC_DIR} reset --hard)
+#	message("pico-extras cleaned")
+#endif()
 
 # Delete untracked files in pico-sdk
 if(EXISTS "${PICO_SDK_SRC_DIR}/.git")
@@ -61,9 +61,9 @@ if(EXISTS "${PICO_SDK_SRC_DIR}/.git")
 	execute_process(COMMAND ${GIT_EXECUTABLE} -C ${PICO_SDK_SRC_DIR} reset --hard)
 	message("pico-sdk cleaned")
 endif()
-
+message("mbedtls not a !!")
 execute_process(COMMAND ${GIT_EXECUTABLE} -C ${RP2040_HAT_AWS_C_SRC_DIR} submodule update --init)
-
+message("mbedtls not b !!")
 # Delete untracked files in coreHTTP
 if(EXISTS "${AWS_IOT_DEVICE_SDK_EMBEDDED_C_COREHTTP_SRC_DIR}/.git")
 	message("cleaning aws-iot-device-sdk-embedded-C coreHTTP...")
