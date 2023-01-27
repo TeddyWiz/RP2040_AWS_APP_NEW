@@ -169,6 +169,10 @@ target_include_directories(SNTP_FILES PUBLIC
         )
 
 # AWS SDK
+#if(NOT DEFINED USE_SHARED_MBEDTLS_LIBRARY)
+#		set(USE_SHARED_MBEDTLS_LIBRARY 1)
+#endif()
+
 include(${AWS_SDK_DIR}/libraries/standard/coreHTTP/httpFilePaths.cmake)
 include(${AWS_SDK_DIR}/libraries/standard/coreMQTT/mqttFilePaths.cmake)
 
@@ -184,5 +188,5 @@ target_include_directories(AWS_SDK_FILES PUBLIC
         ${HTTP_INCLUDE_PUBLIC_DIRS}
         ${MQTT_INCLUDE_PUBLIC_DIRS}
         ${PORT_DIR}/aws-iot-device-sdk-embedded-C/inc
-        #${AWS_SDK_DIR}/libraries/3rdparty/mbedtls/include
+        ${AWS_SDK_DIR}/libraries/3rdparty/mbedtls/include
         )

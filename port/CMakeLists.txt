@@ -58,6 +58,9 @@ target_link_libraries(AWS_SDK_PORT_FILES PUBLIC
         DHCP_FILES
         DNS_FILES
         AWS_SDK_FILES
+       # mbedtls_target
+       # mbedx509_target
+       # mbedcrypto_target
         mbedcrypto
         mbedx509
         mbedtls

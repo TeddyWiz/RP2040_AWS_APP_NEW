@@ -71,6 +71,7 @@ add_subdirectory(examples)
 # Add libraries in subdirectories
 add_subdirectory(${CMAKE_SOURCE_DIR}/libraries)
 #add_subdirectory(${MBEDTLS_DIR})
+add_subdirectory(${AWS_SDK_DIR}/libraries/3rdparty/mbedtls)
 add_subdirectory(${PORT_DIR})
 
 # Set compile options
