@@ -14,9 +14,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
         DNS_FILES
         AWS_SDK_PORT_FILES
         TIMER_FILES
-        #mbedtls_target
-        #mbedx509_target
-        #mbedcrypto_target
         mbedcrypto
         mbedx509
         mbedtls

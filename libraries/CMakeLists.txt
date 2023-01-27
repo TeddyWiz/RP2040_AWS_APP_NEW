@@ -168,11 +168,6 @@ target_include_directories(SNTP_FILES PUBLIC
         ${WIZNET_DIR}/Internet/SNTP
         )
 
-# AWS SDK
-#if(NOT DEFINED USE_SHARED_MBEDTLS_LIBRARY)
-#		set(USE_SHARED_MBEDTLS_LIBRARY 1)
-#endif()
-
 include(${AWS_SDK_DIR}/libraries/standard/coreHTTP/httpFilePaths.cmake)
 include(${AWS_SDK_DIR}/libraries/standard/coreMQTT/mqttFilePaths.cmake)
 
