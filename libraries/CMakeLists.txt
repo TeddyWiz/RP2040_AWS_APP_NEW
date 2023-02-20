@@ -170,6 +170,7 @@ target_include_directories(SNTP_FILES PUBLIC
 
 include(${AWS_SDK_DIR}/libraries/standard/coreHTTP/httpFilePaths.cmake)
 include(${AWS_SDK_DIR}/libraries/standard/coreMQTT/mqttFilePaths.cmake)
+include(${AWS_SDK_DIR}/libraries/standard/corePKCS11/pkcsFilePaths.cmake)
 
 add_library(AWS_SDK_FILES STATIC)
 
@@ -177,6 +178,7 @@ target_sources(AWS_SDK_FILES PUBLIC
         ${HTTP_SOURCES}
         ${MQTT_SOURCES}
         ${MQTT_SERIALIZER_SOURCES}
+        ${PKCS_SOURCES}
         )
 
 target_include_directories(AWS_SDK_FILES PUBLIC
@@ -184,4 +186,5 @@ target_include_directories(AWS_SDK_FILES PUBLIC
         ${MQTT_INCLUDE_PUBLIC_DIRS}
         ${PORT_DIR}/aws-iot-device-sdk-embedded-C/inc
         ${AWS_SDK_DIR}/libraries/3rdparty/mbedtls/include
+        ${PKCS_INCLUDE_PUBLIC_DIRS}
         )

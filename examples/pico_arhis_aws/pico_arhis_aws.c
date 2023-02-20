@@ -519,7 +519,7 @@ int main( int argc,
         else
         {
             /* Insert the claim credentials into the PKCS #11 module */
-            #if 0
+            #if 1
             
             status = loadClaimCredentials( p11Session,
                                            CLAIM_CERT_PATH,
@@ -527,6 +527,7 @@ int main( int argc,
                                            CLAIM_PRIVATE_KEY_PATH,
                                            pkcs11configLABEL_CLAIM_PRIVATE_KEY );
             #endif
+            #if 0
             if( status == true )
             {
                 ret = provisionPrivateKey( p11Session, claimPrivateKey,
@@ -541,6 +542,7 @@ int main( int argc,
                                             pkcs11configLABEL_CLAIM_CERTIFICATE );
                 status = ( ret == CKR_OK );
             }
+            #endif
             if( status == false )
             {
                 LogError( ( "Failed to provision PKCS #11 with claim credentials." ) );

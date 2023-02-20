@@ -9,6 +9,8 @@ include( ${AWS_SDK_DIR}/libraries/standard/backoffAlgorithm/backoffAlgorithmFile
 # Include Fleet Provisioning library's source and header path variables.
 include(
     ${AWS_SDK_DIR}/libraries/aws/fleet-provisioning-for-aws-iot-embedded-sdk/fleetprovisioningFilePaths.cmake )
+    
+include(logging-stack/logging.cmake)
 
 # Set path to corePKCS11 and it's third party libraries.
 set(COREPKCS11_LOCATION "${AWS_SDK_DIR}/libraries/standard/corePKCS11")
@@ -59,25 +61,26 @@ target_include_directories( ${TARGET_NAME}
                               ${PKCS_PAL_INCLUDE_PUBLIC_DIRS}
                               ${AWS_DEMO_INCLUDE_DIRS}
                               "${FLEET_PROVISIONING_INCLUDE_PUBLIC_DIRS}"
+                              "${CMAKE_CURRENT_SOURCE_DIR}/pkcs11/common/include"
                               #"${DEMOS_DIR}/pkcs11/common/include" # corePKCS11 config
                               "${CMAKE_SOURCE_DIR}/platform/include"
                               "${CMAKE_CURRENT_LIST_DIR}"
                             PRIVATE
                               "${CORE_PKCS11_3RDPARTY_LOCATION}/mbedtls_utils" )
 
-set_macro_definitions(TARGETS ${TARGET_NAME}
-                      REQUIRED
-                        "AWS_IOT_ENDPOINT"
-                        "ROOT_CA_CERT_PATH"
-                        "CLAIM_CERT_PATH"
-                        "CLAIM_PRIVATE_KEY_PATH"
-                        "PROVISIONING_TEMPLATE_NAME"
-                        "DEVICE_SERIAL_NUMBER"
-                        "CSR_SUBJECT_NAME"
-                        "CLIENT_IDENTIFIER"
-                        "OS_NAME"
-                        "OS_VERSION"
-                        "HARDWARE_PLATFORM_NAME")
+#set_macro_definitions(TARGETS ${TARGET_NAME}
+#                      REQUIRED
+#                        "AWS_IOT_ENDPOINT"
+#                        "ROOT_CA_CERT_PATH"
+#                        "CLAIM_CERT_PATH"
+#                        "CLAIM_PRIVATE_KEY_PATH"
+#                        "PROVISIONING_TEMPLATE_NAME"
+#                        "DEVICE_SERIAL_NUMBER"
+#                        "CSR_SUBJECT_NAME"
+#                        "CLIENT_IDENTIFIER"
+#                        "OS_NAME"
+#                        "OS_VERSION"
+#                        "HARDWARE_PLATFORM_NAME")
                         
 pico_enable_stdio_usb(${TARGET_NAME} 1)
 pico_enable_stdio_uart(${TARGET_NAME} 0)
